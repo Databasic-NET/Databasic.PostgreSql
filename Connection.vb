@@ -20,15 +20,21 @@ Public Class Connection
 	Public Overrides Sub Open(dsn As String)
         Me._provider = New NpgsqlConnection(dsn)
         Me._provider.Open()
-        ' TODO
-        'AddHandler Me._provider.InfoMessage, AddressOf Connection.errorHandler
+        AddHandler Me._provider.Notice, AddressOf Connection.errorHandler
     End Sub
 
-    Public Overrides Function CreateAndBeginTransaction(Optional transactionName As String = "", Optional isolationLevel As IsolationLevel = IsolationLevel.Unspecified) As Databasic.Transaction
-        Return New Transaction() With {
+    Protected Shared Sub errorHandler(sender As Object, args As NpgsqlNoticeEventArgs)
+        Dim sqlErrors As Databasic.SqlErrorsCollection = New SqlErrorsCollection()
+        sqlErrors.Add(New Databasic.PostgreSql.SqlError(args.Notice))
+        Databasic.Events.RaiseError(sqlErrors)
+    End Sub
+
+    Protected Overrides Function createAndBeginTransaction(Optional transactionName As String = "", Optional isolationLevel As IsolationLevel = IsolationLevel.Unspecified) As Databasic.Transaction
+        Me.OpenedTransaction = New Transaction() With {
             .ConnectionWrapper = Me,
             .Instance = Me._provider.BeginTransaction(isolationLevel)
         }
+        Return Me.OpenedTransaction
     End Function
 
 End Class
