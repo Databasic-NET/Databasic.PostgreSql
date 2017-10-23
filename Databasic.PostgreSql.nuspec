@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
 	<metadata minClientVersion="2.6">
 		<id>Databasic.PostgreSql</id>
-		<version>1.2.4.0</version>
+		<version>1.2.5.0</version>
 		<title>Databasic - PostgreSql</title>
 		<authors>Tom Flidr</authors>
 		<owners>Tom Flidr</owners>
@@ -17,13 +17,17 @@
 		<copyright>Copyright © 2017</copyright>
 		<tags>sql postgresql postgres database query command select insert update delete pure sql dml tool utility library</tags>
 		<dependencies>
-			<!--dependency id="System" version="4.0.0.0" />
-			<dependency id="System.Core" version="4.0.0.0" />
-			<dependency id="System.Threading.Tasks.Extensions" version="4.1.0.0" />
-			<dependency id="System.Data" version="4.0.0.0" /-->
 			<dependency id="Npgsql" version="3.2.4.0" />
 			<dependency id="Databasic.Core" version="1.2.4.0" />
 		</dependencies>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System.Core" />
+			<frameworkAssembly assemblyName="System.Data" />
+			<!--frameworkAssembly assemblyName="System.Threading.Tasks.Extensions" />
+			<frameworkAssembly assemblyName="System.Numerics" />
+			<frameworkAssembly assemblyName="System.Transactions" />
+			<frameworkAssembly assemblyName="System.DirectoryServices" /-->
+		</frameworkAssemblies>
 		<releaseNotes>https://github.com/Databasic-NET/Databasic/releases</releaseNotes>
 	</metadata>
 	<files>
