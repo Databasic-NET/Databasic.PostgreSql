@@ -23,10 +23,7 @@
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="System.Core" />
 			<frameworkAssembly assemblyName="System.Data" />
-			<!--frameworkAssembly assemblyName="System.Threading.Tasks.Extensions" />
-			<frameworkAssembly assemblyName="System.Numerics" />
-			<frameworkAssembly assemblyName="System.Transactions" />
-			<frameworkAssembly assemblyName="System.DirectoryServices" /-->
+			<!--frameworkAssembly assemblyName="System.Threading.Tasks.Extensions" /-->
 		</frameworkAssemblies>
 		<releaseNotes>https://github.com/Databasic-NET/Databasic/releases</releaseNotes>
 	</metadata>
